@@ -32,7 +32,7 @@ class valac(Task.Task):
 
 		for x in self.outputs:
 			if id(x.parent) != id(self.outputs[0].parent):
-				shutil.move(self.outputs[0].parent.abspath() + os.sep + x.name, x.abspath())
+				shutil.copy(self.outputs[0].parent.abspath() + os.sep + x.name, x.abspath())
 
 		if self.generator.dump_deps_node:
 			self.generator.dump_deps_node.write('\n'.join(self.generator.packages))
